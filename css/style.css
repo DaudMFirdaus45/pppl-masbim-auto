@@ -4,6 +4,8 @@
     --secondary: #0B2154;
     --light: #F2F2F2;
     --dark: #888888;
+    --populer: #FFDA38;
+    --signature : #E19AFF;
 }
 
 .fw-medium {
@@ -346,13 +348,14 @@
 }
 
 .insta-main {
-width: 300px;
-height: 300px;
+    width: 400px;
+    height: 400px;
 left: 30%;
 }
 
 .insta-etc {
-    
+    width: 190px;
+    height: 190px;
 }
 
 .follow-size {
@@ -361,6 +364,13 @@ left: 30%;
 
 .bg-insta-container{
     transform: translateY(-20px);
+    
+}
+
+.collage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*** Footer ***/
@@ -433,3 +443,104 @@ left: 30%;
     border-right: none;
 }
 
+.service-input {
+    background-color: var(--primary);
+    margin-right: 100px;
+    
+}
+
+.box-contact {
+    background-color: var(--primary);
+    margin-left: 75px;
+}
+
+.input-long{
+    width: 93%;
+    display:block;
+    margin: 0 auto;
+}
+
+.pricing {
+    display: block;
+    width: 80%;
+    height: 60%;
+    margin:auto;
+}
+
+.id-layanan {
+    border-radius: 12px;
+    background-color: var(--secondary);
+    width: 15%;
+    
+}
+
+.status-layanan {
+    border-radius: 12px;
+    background-color: var(--populer);
+    width: 60%;
+}
+
+.category-populer {
+    border-radius: 12px;
+    background-color: var(--populer);
+    width: 50%;
+}
+
+.category-signature {
+    border-radius: 12px;
+    background-color: var(--signature);
+    width: 50%;
+}
+
+.icon-services {
+    background-color: var(--primary);
+    border-radius: 15px;
+}
+
+.card-services {
+    background-color: white;
+    border-radius: 20px;
+    width: 28%;
+}
+
+.test-aja {
+    font-size: xx-large;
+    background-color: var(--primary);
+    text-align: right;
+    padding-right: 10px;
+    position: absolute;
+    width: 553px;
+    height: 57px;
+    left: -12px;
+
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid var(--primary);
+
+    
+    /* border-radius: 16px; */
+
+}
+
+.services-type {
+    text-align: center;
+    font-size: x-large;
+    padding-right: 10%;
+    width: 500px;
+    font-weight: 500;
+    
+
+    left: -10px;
+    --p: 35px; /* control the shape (can be percentage) */
+     height: 50px;
+     aspect-ratio: 1;
+     clip-path: polygon(0 0,100% 0,calc(100% - var(--p)) 100%,0 100%);
+     background: var(--primary);
+}
+
+.services-type-filler {
+    position:absolute;
+    left: -10px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--primary);
+}
