@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riwayat Pemesanan - Masbim Auto Dashboard</title>
+  <link rel="shortcut icon" type="image/png" href="./assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/styles.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!--  App Topstrip -->
+    <div class="app-topstrip bg-black py-6 px-3 w-100 d-lg-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-center gap-5 mb-2 mb-lg-0">
+        <a class="d-flex justify-content-center" href="#">
+          <img src="assets/images/logos/logo.svg" alt="" width="40">
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-6"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Utama</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <i class="ti ti-atom"></i>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <!-- ---------------------------------- -->
+            <!-- Dashboard -->
+            <!-- ---------------------------------- -->
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-layout-grid"></i>
+                  </span>
+                  <span class="hide-menu">Halaman Web</span>
+                </div>
+
+              </a>
+              <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="admin-beranda.html">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Beranda</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="admin-tentang-kami.html">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Tentang Kami</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="admin-layanan.html">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Layanan</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="admin-riwayat-pemesanan.html">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Riwayat Pemesanan</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="admin-kontak.html">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Kontak</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span class="sidebar-divider lg"></span>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Database</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./data-pengguna.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-user-circle"></i>
+                  </span>
+                  <span class="hide-menu">Data Pengguna</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./riwayat-pesanan.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-calendar"></i>
+                  </span>
+                  <span class="hide-menu">Riwayat Pesanan</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./catatan-transaksi.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-notes"></i>
+                  </span>
+                  <span class="hide-menu">Catatan Transaksi</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./invoice.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-file-text"></i>
+                  </span>
+                  <span class="hide-menu">Invoice</span>
+                </div>
+
+              </a>
+            </li>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link " href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="ti ti-bell"></i>
+                <div class="notification bg-danger rounded-circle"></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-animate-up" aria-labelledby="drop1">
+                <div class="message-body">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Pesanan Baru 1
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Pesanan Baru 2
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="./assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="body-wrapper-inner">
+        <div class="container-fluid">
+          <!-- Summary Cards -->
+          <div class="card mb-6">
+            <div class="card-body">
+              <div class="row gy-4 gy-sm-1">
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">5</h4>
+                      <p class="mb-0">Total Pesanan</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-shopping-cart"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">2</h4>
+                      <p class="mb-0">Sedang Dikerjakan</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-clock"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">2</h4>
+                      <p class="mb-0">Selesai</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-check"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0">1</h4>
+                      <p class="mb-0">Dibatalkan</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-x"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Riwayat Pesanan Table -->
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3">
+                <button id="addOrder" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrderModal">Tambah Pesanan</button>
+                <div>
+                  <button id="downloadPdf" class="btn btn-primary me-2">Download PDF</button>
+                  <button id="downloadExcel" class="btn btn-success me-2">Download Excel</button>
+                  <button id="previewReport" class="btn btn-info">Preview Report</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Pelanggan</th>
+                      <th>Layanan</th>
+                      <th>Tanggal</th>
+                      <th>Status</th>
+                      <th>Estimasi Selesai</th>
+                      <th>Total (Rp)</th>
+                      <th>Invoice</th>
+                      <th class="text-center">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>001</td>
+                      <td>Asep Ban Serep</td>
+                      <td>Body Repair & Cat</td>
+                      <td>2025/11/17</td>
+                      <td><span class="badge bg-warning">Sedang Dikerjakan</span></td>
+                      <td>2025/11/17, 15:00 WIB</td>
+                      <td>850.000</td>
+                      <td><span class="badge bg-warning">Pending</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewOrderModal" data-bs-toggle="tooltip" title="Lihat Detail">View</button>
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editOrderModal" data-bs-toggle="tooltip" title="Edit Pesanan">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteOrderModal" data-bs-toggle="tooltip" title="Hapus Pesanan">Hapus</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>002</td>
+                      <td>Budi Turbo</td>
+                      <td>Service Mesin</td>
+                      <td>2025/11/10</td>
+                      <td><span class="badge bg-success">Selesai</span></td>
+                      <td>-</td>
+                      <td>450.000</td>
+                      <td><span class="badge bg-success">Sent</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewOrderModal" data-bs-toggle="tooltip" title="Lihat Detail">View</button>
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editOrderModal" data-bs-toggle="tooltip" title="Edit Pesanan">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteOrderModal" data-bs-toggle="tooltip" title="Hapus Pesanan">Hapus</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>003</td>
+                      <td>Siti Nurhaliza</td>
+                      <td>Ganti Ban</td>
+                      <td>2025/11/08</td>
+                      <td><span class="badge bg-success">Selesai</span></td>
+                      <td>-</td>
+                      <td>200.000</td>
+                      <td><span class="badge bg-success">Sent</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewOrderModal" data-bs-toggle="tooltip" title="Lihat Detail">View</button>
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editOrderModal" data-bs-toggle="tooltip" title="Edit Pesanan">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteOrderModal" data-bs-toggle="tooltip" title="Hapus Pesanan">Hapus</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>004</td>
+                      <td>Ahmad Rahman</td>
+                      <td>Service Komplit</td>
+                      <td>2025/11/05</td>
+                      <td><span class="badge bg-warning">Sedang Dikerjakan</span></td>
+                      <td>2025/11/06, 14:00 WIB</td>
+                      <td>1.200.000</td>
+                      <td><span class="badge bg-warning">Pending</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewOrderModal" data-bs-toggle="tooltip" title="Lihat Detail">View</button>
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editOrderModal" data-bs-toggle="tooltip" title="Edit Pesanan">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteOrderModal" data-bs-toggle="tooltip" title="Hapus Pesanan">Hapus</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>005</td>
+                      <td>Dedi Kusnadi</td>
+                      <td>Body Repair</td>
+                      <td>2025/10/28</td>
+                      <td><span class="badge bg-danger">Dibatalkan</span></td>
+                      <td>-</td>
+                      <td>0</td>
+                      <td><span class="badge bg-secondary">Cancelled</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewOrderModal" data-bs-toggle="tooltip" title="Lihat Detail">View</button>
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editOrderModal" data-bs-toggle="tooltip" title="Edit Pesanan">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteOrderModal" data-bs-toggle="tooltip" title="Hapus Pesanan">Hapus</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal View Order -->
+  <div class="modal fade" id="viewOrderModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detail Pesanan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Detail pesanan akan muncul di sini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Add Order -->
+  <div class="modal fade" id="addOrderModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Pesanan Baru</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addOrderForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="customerName" class="form-label">Nama Pelanggan</label>
+                <input type="text" class="form-control" id="customerName" placeholder="Masukkan nama pelanggan" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="serviceType" class="form-label">Jenis Layanan</label>
+                <select class="form-select" id="serviceType" required>
+                  <option value="">Pilih Layanan</option>
+                  <option value="Body Repair & Cat">Body Repair & Cat</option>
+                  <option value="Service Mesin">Service Mesin</option>
+                  <option value="Ganti Ban">Ganti Ban</option>
+                  <option value="Service Komplit">Service Komplit</option>
+                  <option value="Body Repair">Body Repair</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="orderDate" class="form-label">Tanggal Pesanan</label>
+                <input type="date" class="form-control" id="orderDate" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="totalAmount" class="form-label">Total (Rp)</label>
+                <input type="number" class="form-control" id="totalAmount" placeholder="Masukkan total biaya" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" id="status" required>
+                  <option value="">Pilih Status</option>
+                  <option value="Sedang Dikerjakan">Sedang Dikerjakan</option>
+                  <option value="Selesai">Selesai</option>
+                  <option value="Dibatalkan">Dibatalkan</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="estimatedCompletion" class="form-label">Estimasi Selesai</label>
+                <input type="datetime-local" class="form-control" id="estimatedCompletion">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" id="saveOrder">Simpan Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Order -->
+  <div class="modal fade" id="editOrderModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Pesanan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editOrderForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="editCustomerName" class="form-label">Nama Pelanggan</label>
+                <input type="text" class="form-control" id="editCustomerName" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editServiceType" class="form-label">Jenis Layanan</label>
+                <select class="form-select" id="editServiceType" required>
+                  <option value="Body Repair & Cat">Body Repair & Cat</option>
+                  <option value="Service Mesin">Service Mesin</option>
+                  <option value="Ganti Ban">Ganti Ban</option>
+                  <option value="Service Komplit">Service Komplit</option>
+                  <option value="Body Repair">Body Repair</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="editOrderDate" class="form-label">Tanggal Pesanan</label>
+                <input type="date" class="form-control" id="editOrderDate" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editTotalAmount" class="form-label">Total (Rp)</label>
+                <input type="number" class="form-control" id="editTotalAmount" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="editStatus" class="form-label">Status</label>
+                <select class="form-select" id="editStatus" required>
+                  <option value="Sedang Dikerjakan">Sedang Dikerjakan</option>
+                  <option value="Selesai">Selesai</option>
+                  <option value="Dibatalkan">Dibatalkan</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editEstimatedCompletion" class="form-label">Estimasi Selesai</label>
+                <input type="datetime-local" class="form-control" id="editEstimatedCompletion">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" id="updateOrder">Update Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete Order -->
+  <div class="modal fade" id="deleteOrderModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hapus Pesanan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Apakah Anda yakin ingin menghapus pesanan ini?</p>
+          <p class="text-muted">Tindakan ini tidak dapat dibatalkan.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-danger" id="confirmDelete">Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Report Preview -->
+  <div class="modal fade" id="reportModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Preview Laporan Riwayat Pemesanan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-4">
+            <h6>Ringkasan Pemesanan</h6>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>5</h5>
+                    <p>Total Pesanan</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>2</h5>
+                    <p>Sedang Dikerjakan</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>2</h5>
+                    <p>Selesai</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>1</h5>
+                    <p>Dibatalkan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h6>Detail Pesanan</h6>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nama Pelanggan</th>
+                  <th>Layanan</th>
+                  <th>Tanggal</th>
+                  <th>Status</th>
+                  <th>Total (Rp)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>001</td>
+                  <td>Asep Ban Serep</td>
+                  <td>Body Repair & Cat</td>
+                  <td>2025/11/17</td>
+                  <td><span class="badge bg-warning">Sedang Dikerjakan</span></td>
+                  <td>850.000</td>
+                </tr>
+                <tr>
+                  <td>002</td>
+                  <td>Budi Turbo</td>
+                  <td>Service Mesin</td>
+                  <td>2025/11/10</td>
+                  <td><span class="badge bg-success">Selesai</span></td>
+                  <td>450.000</td>
+                </tr>
+                <tr>
+                  <td>003</td>
+                  <td>Siti Nurhaliza</td>
+                  <td>Ganti Ban</td>
+                  <td>2025/11/08</td>
+                  <td><span class="badge bg-success">Selesai</span></td>
+                  <td>200.000</td>
+                </tr>
+                <tr>
+                  <td>004</td>
+                  <td>Ahmad Rahman</td>
+                  <td>Service Komplit</td>
+                  <td>2025/11/05</td>
+                  <td><span class="badge bg-warning">Sedang Dikerjakan</span></td>
+                  <td>1.200.000</td>
+                </tr>
+                <tr>
+                  <td>005</td>
+                  <td>Dedi Kusnadi</td>
+                  <td>Body Repair</td>
+                  <td>2025/10/28</td>
+                  <td><span class="badge bg-danger">Dibatalkan</span></td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-primary" id="downloadReportPdf">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/sidebarmenu.js"></script>
+  <script src="./assets/js/app.min.js"></script>
+  <script src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="./assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+
+<script>
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    // Download PDF functionality
+    document.getElementById('downloadPdf').addEventListener('click', function() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.text('Riwayat Pemesanan', 20, 20);
+      doc.autoTable({
+        html: '.table',
+        startY: 30,
+        theme: 'grid'
+      });
+
+      doc.save('riwayat-pemesanan.pdf');
+    });
+
+    // Download Excel functionality
+    document.getElementById('downloadExcel').addEventListener('click', function() {
+      const table = document.querySelector('.table');
+      const wb = XLSX.utils.table_to_book(table, {sheet: "Riwayat Pemesanan"});
+      XLSX.writeFile(wb, 'riwayat-pemesanan.xlsx');
+    });
+
+    // Preview Report functionality
+    document.getElementById('previewReport').addEventListener('click', function() {
+      const modal = new bootstrap.Modal(document.getElementById('reportModal'));
+      modal.show();
+    });
+
+    // Download Report PDF functionality
+    document.getElementById('downloadReportPdf').addEventListener('click', function() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.text('Laporan Riwayat Pemesanan', 20, 20);
+      doc.text('Ringkasan Pemesanan', 20, 35);
+      doc.text('Total Pesanan: 5', 20, 45);
+      doc.text('Sedang Dikerjakan: 2', 20, 55);
+      doc.text('Selesai: 2', 20, 65);
+      doc.text('Dibatalkan: 1', 20, 75);
+
+      doc.text('Detail Pesanan', 20, 90);
+      doc.autoTable({
+        html: '#reportModal .table',
+        startY: 100,
+        theme: 'grid'
+      });
+
+      doc.save('laporan-riwayat-pemesanan.pdf');
+    });
+
+    // Add Order functionality
+    document.getElementById('saveOrder').addEventListener('click', function() {
+      // Add logic to save new order
+      alert('Pesanan baru telah ditambahkan!');
+      bootstrap.Modal.getInstance(document.getElementById('addOrderModal')).hide();
+    });
+
+    // Update Order functionality
+    document.getElementById('updateOrder').addEventListener('click', function() {
+      // Add logic to update order
+      alert('Pesanan telah diperbarui!');
+      bootstrap.Modal.getInstance(document.getElementById('editOrderModal')).hide();
+    });
+
+    // Delete Order functionality
+    document.getElementById('confirmDelete').addEventListener('click', function() {
+      // Add logic to delete order
+      alert('Pesanan telah dihapus!');
+      bootstrap.Modal.getInstance(document.getElementById('deleteOrderModal')).hide();
+    });
+  </script>
+</body>
+</html>

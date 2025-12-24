@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catatan Transaksi - Masbim Auto Dashboard</title>
+  <link rel="shortcut icon" type="image/png" href="./assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/styles.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!--  App Topstrip -->
+    <div class="app-topstrip bg-black py-6 px-3 w-100 d-lg-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-center gap-5 mb-2 mb-lg-0">
+        <a class="d-flex justify-content-center" href="#">
+          <img src="assets/images/logos/logo.svg" alt="" width="40">
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-6"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Utama</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <i class="ti ti-atom"></i>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <!-- ---------------------------------- -->
+            <!-- Dashboard -->
+            <!-- ---------------------------------- -->
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-layout-grid"></i>
+                  </span>
+                  <span class="hide-menu">Halaman Web</span>
+                </div>
+
+              </a>
+              <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="#">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Beranda</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="#">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Tentang Kami</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="#">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Layanan</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="#">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Riwayat Pemesanan</span>
+                    </div>
+
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="#">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                      </div>
+                      <span class="hide-menu">Kontak</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span class="sidebar-divider lg"></span>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Database</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./data-pengguna.html"
+                aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-user-circle"></i>
+                  </span>
+                  <span class="hide-menu">Data Pengguna</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./riwayat-pesanan.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-calendar"></i>
+                  </span>
+                  <span class="hide-menu">Riwayat Pesanan</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./catatan-transaksi.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-notes"></i>
+                  </span>
+                  <span class="hide-menu">Catatan Transaksi</span>
+                </div>
+
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"
+                href="./invoice.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-file-text"></i>
+                  </span>
+                  <span class="hide-menu">Invoice</span>
+                </div>
+
+              </a>
+            </li>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link " href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="ti ti-bell"></i>
+                <div class="notification bg-danger rounded-circle"></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-animate-up" aria-labelledby="drop1">
+                <div class="message-body">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Pesanan Baru 1
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Pesanan Baru 2
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="./assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+
+      <div class="body-wrapper-inner">
+        <div class="container-fluid">
+
+          <!-- Summary Cards -->
+          <div class="card mb-6">
+            <div class="card-body">
+              <div class="row gy-4 gy-sm-1">
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">2</h4>
+                      <p class="mb-0">Total Transaksi</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-notes"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">1.200.000</h4>
+                      <p class="mb-0">Pemasukan</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-arrow-up"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center border-end pb-4 pb-sm-0">
+                    <div>
+                      <h4 class="mb-0">350.000</h4>
+                      <p class="mb-0">Pengeluaran</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-arrow-down"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0">Rp 4.250.000</h4>
+                      <p class="mb-0">Saldo</p>
+                    </div>
+                    <div class="avatar w-px-42 h-px-42">
+                      <span class="avatar-initial rounded bg-label-secondary">
+                        <i class="ti ti-wallet"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabel Catatan Transaksi -->
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3">
+                <button id="addTransaction" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Tambah Transaksi</button>
+                <div>
+                  <button id="downloadPdf" class="btn btn-primary me-2">Download PDF</button>
+                  <button id="downloadExcel" class="btn btn-success me-2">Download Excel</button>
+                  <button id="previewReport" class="btn btn-info">Preview Report</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th>Jenis</th>
+                      <th>Keterangan</th>
+                      <th>Total (Rp)</th>
+                      <th>Tanggal</th>
+                      <th>Metode</th>
+                      <th>Status</th>
+                      <th class="text-center">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td><span class="badge bg-success">Pemasukan</span></td>
+                      <td>Servis Besar – Honda Jazz</td>
+                      <td>1.200.000</td>
+                      <td>2025/01/24</td>
+                      <td>Transfer</td>
+                      <td><span class="badge bg-success">Selesai</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><span class="badge bg-danger">Pengeluaran</span></td>
+                      <td>Pembelian Oli Mesin</td>
+                      <td>350.000</td>
+                      <td>2025/01/20</td>
+                      <td>Tunai</td>
+                      <td><span class="badge bg-success">Selesai</span></td>
+                      <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal View -->
+  <div class="modal fade" id="viewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detail Transaksi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Detail transaksi akan muncul di sini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Report Preview -->
+  <div class="modal fade" id="reportModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Preview Laporan Keuangan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-4">
+            <h6>Ringkasan Keuangan</h6>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>2</h5>
+                    <p>Total Transaksi</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>Rp 1.200.000</h5>
+                    <p>Pemasukan</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>Rp 350.000</h5>
+                    <p>Pengeluaran</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5>Rp 2.250.000</h5>
+                    <p>Saldo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h6>Detail Transaksi</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Jenis</th>
+                    <th>Keterangan</th>
+                    <th>Total (Rp)</th>
+                    <th>Tanggal</th>
+                    <th>Metode</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Pemasukan</td>
+                    <td>Servis Besar – Honda Jazz</td>
+                    <td>1.200.000</td>
+                    <td>2025/01/24</td>
+                    <td>Transfer</td>
+                    <td>Selesai</td>
+                  </tr>
+                  <tr>
+                    <td>Pengeluaran</td>
+                    <td>Pembelian Oli Mesin</td>
+                    <td>350.000</td>
+                    <td>2025/01/20</td>
+                    <td>Tunai</td>
+                    <td>Selesai</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Add Transaction -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Transaksi Baru</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addTransactionForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="jenis" class="form-label">Jenis Transaksi</label>
+                <select class="form-select" id="jenis" required>
+                  <option value="">Pilih Jenis</option>
+                  <option value="Pemasukan">Pemasukan</option>
+                  <option value="Pengeluaran">Pengeluaran</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="total" class="form-label">Total (Rp)</label>
+                <input type="number" class="form-control" id="total" placeholder="Masukkan jumlah" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="keterangan" class="form-label">Keterangan</label>
+              <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan transaksi" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="tanggal" class="form-label">Tanggal</label>
+                <input type="date" class="form-control" id="tanggal" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="metode" class="form-label">Metode Pembayaran</label>
+                <select class="form-select" id="metode" required>
+                  <option value="">Pilih Metode</option>
+                  <option value="Tunai">Tunai</option>
+                  <option value="Transfer">Transfer</option>
+                  <option value="Kartu Kredit">Kartu Kredit</option>
+                  <option value="E-Wallet">E-Wallet</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-select" id="status" required>
+                <option value="">Pilih Status</option>
+                <option value="Selesai">Selesai</option>
+                <option value="Pending">Pending</option>
+                <option value="Dibatalkan">Dibatalkan</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" id="saveTransaction">Simpan Transaksi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/sidebarmenu.js"></script>
+  <script src="./assets/js/app.min.js"></script>
+  <script src="./assets/libs/simplebar/dist/simplebar.js"></script>
+
+  <script>
+    document.getElementById('downloadPdf').addEventListener('click', function() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Add title
+      doc.setFontSize(18);
+      doc.text('Laporan Keuangan - Catatan Transaksi', 14, 20);
+
+      // Get current summary data
+      const rows = document.querySelectorAll('tbody tr');
+      let totalTransactions = rows.length;
+      let totalIncome = 0;
+      let totalExpense = 0;
+
+      rows.forEach(row => {
+        const jenis = row.cells[0].textContent.trim();
+        const totalText = row.cells[2].textContent.replace(/\./g, '');
+        const total = parseInt(totalText);
+
+        if (jenis.includes('Pemasukan')) {
+          totalIncome += total;
+        } else if (jenis.includes('Pengeluaran')) {
+          totalExpense += total;
+        }
+      });
+
+      const balance = totalIncome - totalExpense;
+
+      // Add summary
+      doc.setFontSize(12);
+      doc.text('Ringkasan Keuangan:', 14, 35);
+      doc.text(`Total Transaksi: ${totalTransactions}`, 14, 45);
+      doc.text(`Pemasukan: Rp ${totalIncome.toLocaleString('id-ID')}`, 14, 55);
+      doc.text(`Pengeluaran: Rp ${totalExpense.toLocaleString('id-ID')}`, 14, 65);
+      doc.text(`Saldo: Rp ${balance.toLocaleString('id-ID')}`, 14, 75);
+
+      // Collect table data from current rows
+      const tableData = [['Jenis', 'Keterangan', 'Total (Rp)', 'Tanggal', 'Metode', 'Status']];
+      rows.forEach(row => {
+        const rowData = [
+          row.cells[0].textContent.trim(),
+          row.cells[1].textContent.trim(),
+          row.cells[2].textContent.trim(),
+          row.cells[3].textContent.trim(),
+          row.cells[4].textContent.trim(),
+          row.cells[5].textContent.trim()
+        ];
+        tableData.push(rowData);
+      });
+
+      doc.autoTable({
+        head: [tableData[0]],
+        body: tableData.slice(1),
+        startY: 85
+      });
+
+      doc.save('laporan-keuangan.pdf');
+    });
+
+    document.getElementById('downloadExcel').addEventListener('click', function() {
+      // Collect table data from current rows
+      const tableData = [['Jenis', 'Keterangan', 'Total (Rp)', 'Tanggal', 'Metode', 'Status']];
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const rowData = [
+          row.cells[0].textContent.trim(),
+          row.cells[1].textContent.trim(),
+          row.cells[2].textContent.trim(),
+          row.cells[3].textContent.trim(),
+          row.cells[4].textContent.trim(),
+          row.cells[5].textContent.trim()
+        ];
+        tableData.push(rowData);
+      });
+
+      const ws = XLSX.utils.aoa_to_sheet(tableData);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Laporan Keuangan');
+      XLSX.writeFile(wb, 'laporan-keuangan.xlsx');
+    });
+
+    document.getElementById('previewReport').addEventListener('click', function() {
+      // Get current summary data
+      const rows = document.querySelectorAll('tbody tr');
+      let totalTransactions = rows.length;
+      let totalIncome = 0;
+      let totalExpense = 0;
+
+      rows.forEach(row => {
+        const jenis = row.cells[0].textContent.trim();
+        const totalText = row.cells[2].textContent.replace(/\./g, '');
+        const total = parseInt(totalText);
+
+        if (jenis.includes('Pemasukan')) {
+          totalIncome += total;
+        } else if (jenis.includes('Pengeluaran')) {
+          totalExpense += total;
+        }
+      });
+
+      const balance = totalIncome - totalExpense;
+
+      // Update modal summary cards
+      const modal = document.getElementById('reportModal');
+      modal.querySelector('.col-md-3:nth-child(1) h5').textContent = totalTransactions;
+      modal.querySelector('.col-md-3:nth-child(2) h5').textContent = 'Rp ' + totalIncome.toLocaleString('id-ID');
+      modal.querySelector('.col-md-3:nth-child(3) h5').textContent = 'Rp ' + totalExpense.toLocaleString('id-ID');
+      modal.querySelector('.col-md-3:nth-child(4) h5').textContent = 'Rp ' + balance.toLocaleString('id-ID');
+
+      // Update modal table
+      const tbody = modal.querySelector('tbody');
+      tbody.innerHTML = '';
+      rows.forEach(row => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${row.cells[0].textContent.trim()}</td>
+          <td>${row.cells[1].textContent.trim()}</td>
+          <td>${row.cells[2].textContent.trim()}</td>
+          <td>${row.cells[3].textContent.trim()}</td>
+          <td>${row.cells[4].textContent.trim()}</td>
+          <td>${row.cells[5].textContent.trim()}</td>
+        `;
+        tbody.appendChild(newRow);
+      });
+
+      // Show modal
+      const bsModal = new bootstrap.Modal(modal);
+      bsModal.show();
+    });
+
+    // Handle add transaction
+    document.getElementById('saveTransaction').addEventListener('click', function() {
+      const jenis = document.getElementById('jenis').value;
+      const keterangan = document.getElementById('keterangan').value;
+      const total = document.getElementById('total').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const metode = document.getElementById('metode').value;
+      const status = document.getElementById('status').value;
+
+      if (!jenis || !keterangan || !total || !tanggal || !metode || !status) {
+        alert('Harap lengkapi semua field!');
+        return;
+      }
+
+      // Format date
+      const formattedDate = new Date(tanggal).toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).replace(/\//g, '/');
+
+      // Format total with dots
+      const formattedTotal = parseInt(total).toLocaleString('id-ID');
+
+      // Create new row
+      const tbody = document.querySelector('tbody');
+      const newRow = document.createElement('tr');
+
+      const badgeClass = jenis === 'Pemasukan' ? 'bg-success' : 'bg-danger';
+      const statusBadgeClass = status === 'Selesai' ? 'bg-success' : status === 'Pending' ? 'bg-warning' : 'bg-danger';
+
+      newRow.innerHTML = `
+        <td><span class="badge ${badgeClass}">${jenis}</span></td>
+        <td>${keterangan}</td>
+        <td>${formattedTotal}</td>
+        <td>${formattedDate}</td>
+        <td>${metode}</td>
+        <td><span class="badge ${statusBadgeClass}">${status}</span></td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+        </td>
+      `;
+
+      tbody.appendChild(newRow);
+
+      // Update summary cards
+      updateSummaryCards();
+
+      // Close modal and reset form
+      const modal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+      modal.hide();
+      document.getElementById('addTransactionForm').reset();
+    });
+
+    function updateSummaryCards() {
+      const rows = document.querySelectorAll('tbody tr');
+      let totalTransactions = rows.length;
+      let totalIncome = 0;
+      let totalExpense = 0;
+
+      rows.forEach(row => {
+        const jenis = row.cells[0].textContent.trim();
+        const totalText = row.cells[2].textContent.replace(/\./g, '');
+        const total = parseInt(totalText);
+
+        if (jenis.includes('Pemasukan')) {
+          totalIncome += total;
+        } else if (jenis.includes('Pengeluaran')) {
+          totalExpense += total;
+        }
+      });
+
+      const balance = totalIncome - totalExpense;
+
+      // Update cards
+      document.querySelector('.col-lg-3:nth-child(1) h4').textContent = totalTransactions;
+      document.querySelector('.col-lg-3:nth-child(2) h4').textContent = totalIncome.toLocaleString('id-ID');
+      document.querySelector('.col-lg-3:nth-child(3) h4').textContent = totalExpense.toLocaleString('id-ID');
+      document.querySelector('.col-lg-3:nth-child(4) h4').textContent = 'Rp ' + balance.toLocaleString('id-ID');
+    }
+  </script>
+</body>
+</html>
